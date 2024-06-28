@@ -1,4 +1,4 @@
-use std::{rc::Rc, sync::mpsc::Sender};
+use std::sync::mpsc::Sender;
 
 use num_bigint::{BigInt, RandBigInt, ToBigInt};
 use num_traits::{One, Zero};
@@ -97,6 +97,9 @@ fn main() {
         }
         if prime.0 > 0 {
             found.push(prime.1);
+            if found.len() % 1000 == 0 {
+                println!("found primes count: {}", found.len());
+            }
         }
     }
 
